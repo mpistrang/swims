@@ -1,0 +1,473 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 188 - January 16, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.748151,
+                    -1.848115
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 189 - January 21, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.936241,
+                    -1.073973
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 190 - January 22, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.796472,
+                    -1.069134
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 191 - January 23, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.792447,
+                    -1.08737
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 192 - January 24, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.148786,
+                    -0.361519
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 193 - February 9, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.647612,
+                    -33.441813
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 194 - February 10, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.647612,
+                    -33.441813
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 195 - April 12, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -69.980306,
+                    -33.853852
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 196 - May 18, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.1792,
+                    -22.969207
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 197 - May 18, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.207747,
+                    -22.987062
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 198 - May 20, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.677506,
+                    -23.204181
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 199 - May 20, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.699282,
+                    -23.171848
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 200 - May 21, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.791993,
+                    -23.213195
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 201 - May 21, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.762037,
+                    -23.21397
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 202 - May 22, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.729623,
+                    -23.355583
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 203 - May  22, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.731421,
+                    -23.362412
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 204 - May  22, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -44.73097,
+                    -23.350872
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 205 - May 24, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.1792,
+                    -22.969207
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 206 - May 25, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -43.256843,
+                    -22.99723
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 207 - July 13, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.517744,
+                    42.416426
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 208 - July 15, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.517744,
+                    42.416426
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 209 - July 20, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.613412,
+                    42.542694
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 210 - July 26, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.712879,
+                    39.453075
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 211 - July 26, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.712879,
+                    39.453075
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 212 - July 31, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.517744,
+                    42.416426
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 213 - August 2, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.613412,
+                    42.542694
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 214 - August 3, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.517744,
+                    42.416426
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 215 - August 9, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.517744,
+                    42.416426
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 216 - August 10, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.556586,
+                    42.50562
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 217 - August 12, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.483379,
+                    42.429665
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 218 - August 17, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.692298,
+                    43.942032
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 219 - August 18, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.692298,
+                    43.942032
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 220 - August 18, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.692298,
+                    43.942032
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 221 - August 19, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.692298,
+                    43.942032
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 222 - August 22, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.476081,
+                    44.168069
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "<p>Swim: 223 - August 25, 2003</p>"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.377914,
+                    44.04937
+                ]
+            }
+        }
+    ]
+}
