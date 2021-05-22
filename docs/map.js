@@ -1,4 +1,3 @@
-
 // set up base layers
 const mbAttr =
     'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
@@ -20,7 +19,7 @@ const streets = L.tileLayer(mbUrl, {
 });
 
 // set up data layers
-const swims = L.layerGroup();
+const swims = L.markerClusterGroup({ showCoverageOnHover: false });
 
 // Set up the map with the default layers showing
 const map = L.map("map", {
@@ -67,5 +66,6 @@ $.getJSON("swims.geojson", function (data) {
       return L.circleMarker(latlng, swimsStyle);
     },
   });
-  geojsonLayer.addTo(swims);
+  swims.addLayer(geojsonLayer);
+  map.fitBounds(swims.getBounds());
 });
