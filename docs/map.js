@@ -72,5 +72,5 @@ function loadData(data) {
 Load the geojson from the file and add it to the swims layer
 */
 $.getJSON("swims.geojson", function (data) {
-loadData(data)
+  loadData(data)
 });
