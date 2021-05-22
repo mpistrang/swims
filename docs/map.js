@@ -57,19 +57,8 @@ const swimsStyle = {
   fillOpacity: 0.8,
 };
 
-/*
-Load the geojson from the file and add it to the swims layer
-*/
-$.getJSON("swims.geojson", function (data) {
-  startYear = 2003
-  endYear = new Date().getFullYear()
-  for (i = startYear; i <= endYear; i++) {
-    console.log(i)
-  }  
+function loadData(data) {
   const geojsonLayer = L.geoJSON(data, {
-    // filter: function (feature, layer) {
-    //   return feature.properties.show_on_map;
-    // },
     onEachFeature: onEachFeature,
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, swimsStyle);
@@ -77,4 +66,11 @@ $.getJSON("swims.geojson", function (data) {
   });
   swims.addLayer(geojsonLayer);
   map.fitBounds(swims.getBounds());
+}
+
+/*
+Load the geojson from the file and add it to the swims layer
+*/
+$.getJSON("swims.geojson", function (data) {
+loadData(data)
 });
