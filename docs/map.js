@@ -40,8 +40,9 @@ L.control.layers(baseLayers).addTo(map);
 Set up the popup for each feature based onthe geojson propeties
 */
 function onEachFeature(feature, layer) {
-  if (feature.properties && feature.properties.popupContent) {
-    const popupContent = feature.properties.popupContent;
+  if (feature.properties) {
+    const {number, month, day, year} = feature.properties
+    const popupContent = `<p>Swim: ${number} - ${month} ${day}, ${year}</p>`
     layer.bindPopup(popupContent);
   }
 }
@@ -60,7 +61,15 @@ const swimsStyle = {
 Load the geojson from the file and add it to the swims layer
 */
 $.getJSON("swims.geojson", function (data) {
+  startYear = 2003
+  endYear = new Date().getFullYear()
+  for (i = startYear; i <= endYear; i++) {
+    console.log(i)
+  }  
   const geojsonLayer = L.geoJSON(data, {
+    // filter: function (feature, layer) {
+    //   return feature.properties.show_on_map;
+    // },
     onEachFeature: onEachFeature,
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, swimsStyle);
