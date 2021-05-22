@@ -19,7 +19,10 @@ const streets = L.tileLayer(mbUrl, {
 });
 
 // set up data layers
-const swims = L.markerClusterGroup({ showCoverageOnHover: false });
+const swims = L.markerClusterGroup({
+  showCoverageOnHover: false,
+  chunkedLoading: true 
+});
 
 // Set up the map with the default layers showing
 const map = L.map("map", {
@@ -41,8 +44,8 @@ Set up the popup for each feature based onthe geojson propeties
 */
 function onEachFeature(feature, layer) {
   if (feature.properties) {
-    const {number, month, day, year} = feature.properties
-    const popupContent = `<p>Swim: ${number} - ${month} ${day}, ${year}</p>`
+    const { number, month, day, year } = feature.properties;
+    const popupContent = `<p>Swim: ${number} - ${month} ${day}, ${year}</p>`;
     layer.bindPopup(popupContent);
   }
 }
@@ -72,5 +75,5 @@ function loadData(data) {
 Load the geojson from the file and add it to the swims layer
 */
 $.getJSON("swims.geojson", function (data) {
-  loadData(data)
+  loadData(data);
 });
