@@ -1,581 +1,473 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "January",
-                "day": 16,
-                "number": 188
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -80.748151,
-                    -1.848115
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "January",
-                "day": 21,
-                "number": 189
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -77.936241,
-                    -1.073973
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "January",
-                "day": 22,
-                "number": 190
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -77.796472,
-                    -1.069134
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "January",
-                "day": 23,
-                "number": 191
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -77.792447,
-                    -1.08737
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "January",
-                "day": 24,
-                "number": 192
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -78.148786,
-                    -0.361519
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "February",
-                "day": 9,
-                "number": 193
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.647612,
-                    -33.441813
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "February",
-                "day": 10,
-                "number": 194
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -70.647612,
-                    -33.441813
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "April",
-                "day": 12,
-                "number": 195
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -69.980306,
-                    -33.853852
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 18,
-                "number": 196
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -43.1792,
-                    -22.969207
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 18,
-                "number": 197
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -43.207747,
-                    -22.987062
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 20,
-                "number": 198
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -44.677506,
-                    -23.204181
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 20,
-                "number": 199
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -44.699282,
-                    -23.171848
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 21,
-                "number": 200
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -44.791993,
-                    -23.213195
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 21,
-                "number": 201
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -44.762037,
-                    -23.21397
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 22,
-                "number": 202
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -44.729623,
-                    -23.355583
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May ",
-                "day": 22,
-                "number": 203
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -44.731421,
-                    -23.362412
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May ",
-                "day": 22,
-                "number": 204
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -44.73097,
-                    -23.350872
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 24,
-                "number": 205
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -43.1792,
-                    -22.969207
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "May",
-                "day": 25,
-                "number": 206
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -43.256843,
-                    -22.99723
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "July",
-                "day": 13,
-                "number": 207
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.517744,
-                    42.416426
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "July",
-                "day": 15,
-                "number": 208
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.517744,
-                    42.416426
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "July",
-                "day": 20,
-                "number": 209
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.613412,
-                    42.542694
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "July",
-                "day": 26,
-                "number": 210
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -76.712879,
-                    39.453075
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "July",
-                "day": 26,
-                "number": 211
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -76.712879,
-                    39.453075
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "July",
-                "day": 31,
-                "number": 212
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.517744,
-                    42.416426
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 2,
-                "number": 213
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.613412,
-                    42.542694
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 3,
-                "number": 214
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.517744,
-                    42.416426
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 9,
-                "number": 215
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.517744,
-                    42.416426
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 10,
-                "number": 216
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.556586,
-                    42.50562
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 12,
-                "number": 217
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -72.483379,
-                    42.429665
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 17,
-                "number": 218
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.692298,
-                    43.942032
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 18,
-                "number": 219
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.692298,
-                    43.942032
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 18,
-                "number": 220
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.692298,
-                    43.942032
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 19,
-                "number": 221
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.692298,
-                    43.942032
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 22,
-                "number": 222
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.476081,
-                    44.168069
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "year": 2003,
-                "month": "August",
-                "day": 25,
-                "number": 223
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.377914,
-                    44.04937
-                ]
-            }
-        }
-    ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "January",
+        "day": 16,
+        "number": 188
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-80.748151, -1.848115]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "January",
+        "day": 21,
+        "number": 189
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.936241, -1.073973]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "January",
+        "day": 22,
+        "number": 190
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.796472, -1.069134]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "January",
+        "day": 23,
+        "number": 191
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.792447, -1.08737]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "January",
+        "day": 24,
+        "number": 192
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.148786, -0.361519]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "February",
+        "day": 9,
+        "number": 193
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.647612, -33.441813]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "February",
+        "day": 10,
+        "number": 194
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.647612, -33.441813]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "April",
+        "day": 12,
+        "number": 195
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-69.980306, -33.853852]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 18,
+        "number": 196
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-43.1792, -22.969207]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 18,
+        "number": 197
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-43.207747, -22.987062]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 20,
+        "number": 198
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-44.677506, -23.204181]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 20,
+        "number": 199
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-44.699282, -23.171848]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 21,
+        "number": 200
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-44.791993, -23.213195]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 21,
+        "number": 201
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-44.762037, -23.21397]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 22,
+        "number": 202
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-44.729623, -23.355583]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May ",
+        "day": 22,
+        "number": 203
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-44.731421, -23.362412]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May ",
+        "day": 22,
+        "number": 204
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-44.73097, -23.350872]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 24,
+        "number": 205
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-43.1792, -22.969207]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "May",
+        "day": 25,
+        "number": 206
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-43.256843, -22.99723]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "July",
+        "day": 13,
+        "number": 207
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.517744, 42.416426]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "July",
+        "day": 15,
+        "number": 208
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.517744, 42.416426]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "July",
+        "day": 20,
+        "number": 209
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.613412, 42.542694]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "July",
+        "day": 26,
+        "number": 210
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.712879, 39.453075]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "July",
+        "day": 26,
+        "number": 211
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.712879, 39.453075]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "July",
+        "day": 31,
+        "number": 212
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.517744, 42.416426]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 2,
+        "number": 213
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.613412, 42.542694]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 3,
+        "number": 214
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.517744, 42.416426]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 9,
+        "number": 215
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.517744, 42.416426]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 10,
+        "number": 216
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.556586, 42.50562]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 12,
+        "number": 217
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.483379, 42.429665]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 17,
+        "number": 218
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.692298, 43.942032]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 18,
+        "number": 219
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.692298, 43.942032]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 18,
+        "number": 220
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.692298, 43.942032]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 19,
+        "number": 221
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.692298, 43.942032]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 22,
+        "number": 222
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.476081, 44.168069]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "year": 2003,
+        "month": "August",
+        "day": 25,
+        "number": 223
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.377914, 44.04937]
+      }
+    }
+  ]
 }

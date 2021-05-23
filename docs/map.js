@@ -54,10 +54,6 @@ function getColor() {
   return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
-
-
-
-
 function getSwimStyle(color) {
   return {
     radius: 5,
@@ -71,19 +67,24 @@ function getSwimStyle(color) {
 
 function loadData(data) {
   const startYear = 2000;
-  const endYear = new Date().getFullYear()
+  const endYear = new Date().getFullYear();
   for (year = startYear; year <= endYear; year++) {
     const color = getColor();
     // build a layer for this year only
     const geojsonLayer = L.geoJSON(data, {
-      filter: function(feature) {return feature.properties.year === year},
+      filter: function (feature) {
+        return feature.properties.year === year;
+      },
       onEachFeature: onEachFeature,
       pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, getSwimStyle(color));
       },
-    });    
-    const thisYear = L.featureGroup.subGroup(swims).addLayer(geojsonLayer)
-    control.addOverlay(thisYear, `<div style="display:inline-block;color:${color};"">${year}<div>`);
+    });
+    const thisYear = L.featureGroup.subGroup(swims).addLayer(geojsonLayer);
+    control.addOverlay(
+      thisYear,
+      `<div style="display:inline-block;color:${color};"">${year}<div>`
+    );
     thisYear.addTo(map);
   }
 
