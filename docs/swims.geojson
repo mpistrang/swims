@@ -20,22 +20,6 @@
         {
             "type": "Feature",
             "properties": {
-                "year": 2004,
-                "month": "January",
-                "day": 16,
-                "number": 188
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -80.748151,
-                    -1.848115
-                ]
-            }
-        },        
-        {
-            "type": "Feature",
-            "properties": {
                 "year": 2003,
                 "month": "January",
                 "day": 21,
@@ -592,6 +576,6 @@
                     44.04937
                 ]
             }
-        }        
+        }
     ]
 }

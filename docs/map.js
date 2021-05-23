@@ -51,13 +51,6 @@ function onEachFeature(feature, layer) {
 }
 
 function getColor() {
-  // var letters = '0123456789ABCDEF';
-  // var color = '#';
-  // for (var i = 0; i < 6; i++) {
-  //   color += letters[Math.floor(Math.random() * 16)];
-  // }
-  // return color;
-
   return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
@@ -77,7 +70,7 @@ function getSwimStyle(color) {
 }
 
 function loadData(data) {
-  const startYear = 2003;
+  const startYear = 2000;
   const endYear = new Date().getFullYear()
   for (year = startYear; year <= endYear; year++) {
     const color = getColor();
