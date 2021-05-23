@@ -37,7 +37,11 @@ const baseLayers = {
   Streets: streets,
 };
 
-L.control.layers(baseLayers).addTo(map);
+const control = L.control.layers(baseLayers).addTo(map);
+
+map.on('overlayadd', function (eventLayer) {
+  console.log(eventLayer)
+})
 
 /*
 Set up the popup for each feature based onthe geojson propeties
@@ -52,14 +56,7 @@ function onEachFeature(feature, layer) {
 
 let yearColors = {};
 
-function getSwimStyle(feature) {
-  const { year } = feature.properties;
-  let color = yearColors[year]
-  if (!color) {
-    color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    yearColors[year] = color;
-  }
-  
+function getSwimStyle(color) {
   return {
     radius: 5,
     fillColor: color,
@@ -71,13 +68,23 @@ function getSwimStyle(feature) {
 }
 
 function loadData(data) {
-  const geojsonLayer = L.geoJSON(data, {
-    onEachFeature: onEachFeature,
-    pointToLayer: function (feature, latlng) {
-      return L.circleMarker(latlng, getSwimStyle(feature));
-    },
-  });
-  swims.addLayer(geojsonLayer);
+  const startYear = 2003;
+  const endYear = new Date().getFullYear()
+  for (year = startYear; year <= endYear; year++) {
+    const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    // build a layer for this year only
+    const geojsonLayer = L.geoJSON(data, {
+      filter: function(feature) {return feature.properties.year === year},
+      onEachFeature: onEachFeature,
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, getSwimStyle(color));
+      },
+    });    
+    const thisYear = L.featureGroup.subGroup(swims).addLayer(geojsonLayer)
+    control.addOverlay(thisYear, year);
+    thisYear.addTo(map);
+  }
+
   map.fitBounds(swims.getBounds());
 }
 
