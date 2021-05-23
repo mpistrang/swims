@@ -27,7 +27,6 @@ def get_swims_geojson(filename):
     with open(filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=TAB_DELIMITER)
         for row in reader:
-            row['Year'] = "2003"  # hardcoded for now
             yield convert_row_to_geojson(row)
 
 
@@ -45,8 +44,8 @@ def main():
         "features": list(swims_geojson)
     }
 
-    with open('./docs/swims.geojson', 'w') as f:
-        json.dump(geojson, f, indent=4)
+    with open('./site-content/swims.geojson', 'w') as f:
+        json.dump(geojson, f)
 
 
 if __name__ == '__main__':

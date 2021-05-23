@@ -66,9 +66,9 @@ function getSwimStyle(color) {
 }
 
 function loadData(data) {
-  const startYear = 2000;
-  const endYear = new Date().getFullYear();
-  for (year = startYear; year <= endYear; year++) {
+  // get all the years
+  const years = [...new Set(data.features.map(feature=>feature.properties.year))];
+  years.forEach(year=> {
     const color = getColor();
     // build a layer for this year only
     const geojsonLayer = L.geoJSON(data, {
@@ -86,7 +86,7 @@ function loadData(data) {
       `<div style="display:inline-block;color:${color};"">${year}<div>`
     );
     thisYear.addTo(map);
-  }
+  })
 
   map.fitBounds(swims.getBounds());
 }
