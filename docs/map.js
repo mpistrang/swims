@@ -39,10 +39,6 @@ const baseLayers = {
 
 const control = L.control.layers(baseLayers).addTo(map);
 
-map.on('overlayadd', function (eventLayer) {
-  console.log(eventLayer)
-})
-
 /*
 Set up the popup for each feature based onthe geojson propeties
 */
@@ -54,7 +50,20 @@ function onEachFeature(feature, layer) {
   }
 }
 
-let yearColors = {};
+function getColor() {
+  // var letters = '0123456789ABCDEF';
+  // var color = '#';
+  // for (var i = 0; i < 6; i++) {
+  //   color += letters[Math.floor(Math.random() * 16)];
+  // }
+  // return color;
+
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
+
+
+
+
 
 function getSwimStyle(color) {
   return {
@@ -71,7 +80,7 @@ function loadData(data) {
   const startYear = 2003;
   const endYear = new Date().getFullYear()
   for (year = startYear; year <= endYear; year++) {
-    const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    const color = getColor();
     // build a layer for this year only
     const geojsonLayer = L.geoJSON(data, {
       filter: function(feature) {return feature.properties.year === year},
@@ -81,7 +90,7 @@ function loadData(data) {
       },
     });    
     const thisYear = L.featureGroup.subGroup(swims).addLayer(geojsonLayer)
-    control.addOverlay(thisYear, year);
+    control.addOverlay(thisYear, `<div style="display:inline-block;color:${color};"">${year}<div>`);
     thisYear.addTo(map);
   }
 
