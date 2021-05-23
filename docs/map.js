@@ -21,7 +21,7 @@ const streets = L.tileLayer(mbUrl, {
 // set up data layers
 const swims = L.markerClusterGroup({
   showCoverageOnHover: false,
-  chunkedLoading: true 
+  chunkedLoading: true,
 });
 
 // Set up the map with the default layers showing
@@ -50,21 +50,31 @@ function onEachFeature(feature, layer) {
   }
 }
 
-// shared syle for each point
-const swimsStyle = {
-  radius: 5,
-  fillColor: "#ff7800",
-  color: "#000",
-  weight: 1,
-  opacity: 1,
-  fillOpacity: 0.8,
-};
+let yearColors = {};
+
+function getSwimStyle(feature) {
+  const { year } = feature.properties;
+  let color = yearColors[year]
+  if (!color) {
+    color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    yearColors[year] = color;
+  }
+  
+  return {
+    radius: 5,
+    fillColor: color,
+    color,
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8,
+  };
+}
 
 function loadData(data) {
   const geojsonLayer = L.geoJSON(data, {
     onEachFeature: onEachFeature,
     pointToLayer: function (feature, latlng) {
-      return L.circleMarker(latlng, swimsStyle);
+      return L.circleMarker(latlng, getSwimStyle(feature));
     },
   });
   swims.addLayer(geojsonLayer);
