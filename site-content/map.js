@@ -68,6 +68,7 @@ function getSwimStyle(color) {
 function loadData(data) {
   // get all the years
   const years = [...new Set(data.features.map(feature=>feature.properties.year))];
+  years.sort()
   years.forEach(year=> {
     const color = getColor();
     // build a layer for this year only

@@ -53,11 +53,17 @@ def convert_row_to_geojson(row):
     return swim_geojson
 
 
+def sort_key(swim):
+    props = swim['properties']
+    return f"{props['year']}{props['month']}{props['day']}"
+
+
 def get_swims_geojson():
     rows = (convert_row_to_geojson(row)
             for row in get_data_from_google_sheet())
     filtered_rows = filter(lambda x: x, rows)
-    yield from filtered_rows
+    sorted_rows = sorted(filtered_rows, key=sort_key)
+    yield from sorted_rows
 
 
 def main():
