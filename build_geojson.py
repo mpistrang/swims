@@ -32,7 +32,11 @@ def get_data_from_google_sheet():
 
 def convert_row_to_geojson(row):
 
-    lat, lon = row['Coordinates'].split(",")
+    try:
+        lat, lon = row['Coordinates'].split(",")
+    except Exception as e:
+        print(f"Swim {row['Swim #']} is invalid, skipping.")
+        return None
     swim_geojson = {
         "type": "Feature",
         "properties": {
@@ -50,7 +54,10 @@ def convert_row_to_geojson(row):
 
 
 def get_swims_geojson():
-    yield from (convert_row_to_geojson(row) for row in get_data_from_google_sheet())
+    rows = (convert_row_to_geojson(row)
+            for row in get_data_from_google_sheet())
+    filtered_rows = filter(lambda x: x, rows)
+    yield from filtered_rows
 
 
 def main():
