@@ -18,6 +18,8 @@ const streets = L.tileLayer(mbUrl, {
   attribution: mbAttr,
 });
 
+const colors = ['#53ff00','#64e20b','#75c617','#87aa23','#988d2f','#aa713a','#bb5546','#cd3852','#de1c5e','#f0006a','#f11761','#f32e59','#f54551','#f65c48','#f87440','#fa8b38','#fba22f','#fdb927','#ffd11f','#e6d637','#cddb50','#b4e069','#9be582','#82ea9b','#69efb4','#50f4cd','#37f9e6','#1fffff','#29e7ef','#34cfe0','#3fb7d1','#4a9fc1','#5487b2','#5f6fa3','#6a5793','#753f84','#802875',]
+
 // set up data layers
 const swims = L.markerClusterGroup({
   showCoverageOnHover: false,
@@ -50,10 +52,6 @@ function onEachFeature(feature, layer) {
   }
 }
 
-function getColor() {
-  return "#" + Math.floor(Math.random() * 16777215).toString(16);
-}
-
 function getSwimStyle(color) {
   return {
     radius: 5,
@@ -69,8 +67,8 @@ function loadData(data) {
   // get all the years
   const years = [...new Set(data.features.map(feature=>feature.properties.year))];
   years.sort()
-  years.forEach(year=> {
-    const color = getColor();
+  years.forEach((year, i)=> {
+    const color = colors[i];
     // build a layer for this year only
     const geojsonLayer = L.geoJSON(data, {
       filter: function (feature) {
