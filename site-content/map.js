@@ -74,7 +74,7 @@ function loadData(data) {
       filter: function (feature) {
         return feature.properties.year === year;
       },
-      onEachFeature: onEachFeature,
+      onEachFeature,
       pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, getSwimStyle(color));
       },
