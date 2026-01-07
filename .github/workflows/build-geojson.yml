@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # required to commit & push
+  contents: write # required to commit & push
 
 jobs:
   build:
@@ -27,6 +27,8 @@ jobs:
       - name: Run GeoJSON build
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          DAVID_SWIMS_SPREADSHEET_ID: ${{ secrets.DAVID_SWIMS_SPREADSHEET_ID }}
+          DAVID_SWIMS_DATA_RANGE: ${{ secrets.DAVID_SWIMS_DATA_RANGE }}
         run: |
           python build_geojson.py
 
