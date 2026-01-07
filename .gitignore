@@ -2,5 +2,7 @@
 .DS_Store
 *.tsv
 credentials.json
-token.json
+token*.json
 .python-version
+client_secret*.json
+credentials/*
