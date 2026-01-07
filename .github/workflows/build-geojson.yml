@@ -39,7 +39,7 @@ jobs:
 
           # Only commit if there are changes
           if git status --porcelain site-content/swims.geojson | grep .; then
-            site-content/swims.geojson
+            git add site-content/swims.geojson
             git commit -m "Update GeoJSON data"
             git push
           else
