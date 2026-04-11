@@ -38,8 +38,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Only commit if there are changes
-          if git status --porcelain site-content/swims.geojson | grep .; then
-            git add site-content/swims.geojson
+          if git status --porcelain public/swims.geojson | grep .; then
+            git add public/swims.geojson
             git commit -m "Update GeoJSON data"
             git push
           else

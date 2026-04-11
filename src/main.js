@@ -1,3 +1,12 @@
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+import 'leaflet.markercluster';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+
+import 'leaflet.featuregroup.subgroup';
+
 // set up base layers
 const mbAttr =
   'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
@@ -141,6 +150,6 @@ function loadData(data) {
 /*
 Load the geojson from the file and add it to the swims layer
 */
-$.getJSON("swims.geojson", function (data) {
-  loadData(data);
-});
+fetch('/swims.geojson')
+  .then((response) => response.json())
+  .then(loadData);
