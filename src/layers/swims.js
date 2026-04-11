@@ -30,20 +30,22 @@ function markerStyle(color) {
   };
 }
 
-function uniqueSortedYears(features) {
-  const years = new Set();
+function tallyYears(features) {
+  const counts = {};
   for (const f of features) {
     const year = f?.properties?.year;
-    if (year != null) years.add(year);
+    if (year == null) continue;
+    counts[year] = (counts[year] || 0) + 1;
   }
-  return [...years].sort();
+  const sortedYears = Object.keys(counts).map(Number).sort((a, b) => a - b);
+  return { sortedYears, yearCounts: counts };
 }
 
 export function buildYearLayers(featureCollection) {
   const features = Array.isArray(featureCollection?.features)
     ? featureCollection.features
     : [];
-  const sortedYears = uniqueSortedYears(features);
+  const { sortedYears, yearCounts } = tallyYears(features);
 
   const yearLayers = {};
   const yearColors = {};
@@ -61,5 +63,5 @@ export function buildYearLayers(featureCollection) {
     yearLayers[year] = L.featureGroup.subGroup(swimsCluster).addLayer(geojsonLayer);
   });
 
-  return { yearLayers, sortedYears, yearColors };
+  return { yearLayers, sortedYears, yearColors, yearCounts };
 }

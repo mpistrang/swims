@@ -18,8 +18,3 @@ export const streets = L.tileLayer(MAPBOX_STYLE_URL, {
   ...tileOptions,
   id: 'mapbox/streets-v11',
 });
-
-export const baseLayers = {
-  Grayscale: grayscale,
-  Streets: streets,
-};

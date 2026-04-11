@@ -2,7 +2,7 @@ import L from 'leaflet';
 
 import { INITIAL_CENTER, INITIAL_ZOOM } from './config.js';
 import { fetchSwims } from './data.js';
-import { grayscale, baseLayers } from './layers/base.js';
+import { grayscale, streets } from './layers/base.js';
 import { swimsCluster, buildYearLayers } from './layers/swims.js';
 import { installYearFilter } from './controls/year-filter.js';
 
@@ -14,10 +14,15 @@ const map = L.map('map', {
 
 async function init() {
   const data = await fetchSwims();
-  const { yearLayers, sortedYears, yearColors } = buildYearLayers(data);
+  const yearData = buildYearLayers(data);
 
-  sortedYears.forEach((year) => yearLayers[year].addTo(map));
-  installYearFilter(map, baseLayers, yearLayers, sortedYears, yearColors);
+  yearData.sortedYears.forEach((year) => yearData.yearLayers[year].addTo(map));
+
+  installYearFilter(map, {
+    ...yearData,
+    baseLayers: { Grayscale: grayscale, Streets: streets },
+    defaultBaseLayer: 'Grayscale',
+  });
 
   map.fitBounds(swimsCluster.getBounds());
 }
