@@ -2,9 +2,17 @@ name: Build GeoJSON
 
 on:
   workflow_dispatch:
+  schedule:
+    # 09:00 UTC on the 3rd of each month.
+    - cron: "0 9 3 * *"
 
 permissions:
   contents: write # required to commit & push
+
+# Serialize runs so two manual triggers can't race each other's push.
+concurrency:
+  group: build-geojson
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -29,19 +37,30 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           DAVID_SWIMS_SPREADSHEET_ID: ${{ secrets.DAVID_SWIMS_SPREADSHEET_ID }}
           DAVID_SWIMS_DATA_RANGE: ${{ secrets.DAVID_SWIMS_DATA_RANGE }}
-        run: |
-          python build_geojson.py
+        run: python build_geojson.py
 
-      - name: Commit and push changes
+      - name: Detect changes
+        id: detect
+        run: |
+          if [ -n "$(git status --porcelain public/swims.geojson)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure git identity
+        if: steps.detect.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Only commit if there are changes
-          if git status --porcelain public/swims.geojson | grep .; then
-            git add public/swims.geojson
-            git commit -m "Update GeoJSON data"
-            git push
-          else
-            echo "No changes to commit"
-          fi
+      - name: Commit and push changes
+        if: steps.detect.outputs.changed == 'true'
+        run: |
+          git add public/swims.geojson
+          git commit -m "Update GeoJSON data"
+          git push
+
+      - name: Report no changes
+        if: steps.detect.outputs.changed == 'false'
+        run: echo "No changes to commit"
