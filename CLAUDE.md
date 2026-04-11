@@ -44,8 +44,15 @@ In production, regeneration happens via the `Build GeoJSON` GitHub Action (`.git
 ## Architecture notes
 
 - **`build_geojson.py`** pulls rows from a Google Sheet via a service account, expects columns `Swim #`, `Year`, `Month`, `Day`, `Coordinates` (as `"lat,lon"` — note: sheet order is lat,lon, but GeoJSON writes `[lon, lat]`). Rows missing/malformed `Coordinates` are logged and skipped rather than failing the build.
-- **`src/main.js`** builds one Leaflet sub-group per year from the single FeatureCollection, assigns each year a color from a hardcoded 37-entry palette (cycles if there are more years), and registers each year as a toggleable overlay in the layers control. The Select all / Deselect all buttons are injected into the layers-control DOM so they collapse with it; they both flip the actual layers and sync the checkbox state. Marker clustering is provided by `Leaflet.markercluster` + `Leaflet.FeatureGroup.SubGroup` so clusters respect the per-year toggles.
-- **Mapbox access token** is currently hardcoded in `src/main.js`. It is a public `pk.` token scoped for browser use.
+- **Frontend layout (`src/`)** is split by concern rather than one monolithic file:
+  - `main.js` wires everything together — creates the map, fetches the GeoJSON, builds per-year layers, installs the filter control.
+  - `config.js` holds the initial center/zoom, Mapbox token, and the 37-entry `YEAR_COLORS` palette (cycles if there are more years).
+  - `data.js` fetches `/swims.geojson` at runtime.
+  - `layers/base.js` defines the Grayscale and Streets Mapbox tile layers.
+  - `layers/swims.js` builds one `FeatureGroup.SubGroup` per year off a shared `L.markerClusterGroup`, so clusters respect the per-year toggles; also tallies counts per year.
+  - `controls/year-filter.js` (+ `year-filter.css`) is a custom `L.Control` — a collapsible chip drawer with one chip per year (showing year + swim count), ALL/NONE quick toggles, and a BASE MAP switcher. Replaces the stock Leaflet layers control.
+  - `style.css` holds the tiny bit of page-level CSS (just the map container height) and is imported from `main.js`.
+- **Mapbox access token** is currently hardcoded in `src/config.js`. It is a public `pk.` token scoped for browser use.
 - **No `vite.config.js`** — Vite's defaults handle root `index.html`, `public/` static assets, and `dist/` build output. Add one only if a customization actually requires it.
 
 ## Render deployment

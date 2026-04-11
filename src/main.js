@@ -1,5 +1,6 @@
 import L from 'leaflet';
 
+import './style.css';
 import { INITIAL_CENTER, INITIAL_ZOOM } from './config.js';
 import { fetchSwims } from './data.js';
 import { grayscale, streets } from './layers/base.js';
