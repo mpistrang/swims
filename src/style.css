@@ -1,4 +1,8 @@
 html,
+body {
+  margin: 0;
+}
+
 #map {
-  height: 98vh;
+  height: 100dvh;
 }

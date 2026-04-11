@@ -40,6 +40,7 @@ async function init() {
         if (!map.hasLayer(layer)) map.addLayer(layer);
       });
     },
+    onTick: (count) => yearFilter.setTimelineCount(count),
     onExit: () => {
       // Restore year visibility to whatever the filter says should be shown.
       const active = yearFilter.getActiveYears();
@@ -49,6 +50,7 @@ async function init() {
         if (shouldShow && !map.hasLayer(layer)) map.addLayer(layer);
         else if (!shouldShow && map.hasLayer(layer)) map.removeLayer(layer);
       });
+      yearFilter.setTimelineCount(null);
       yearFilter.setTimelineActive(false);
       yearFilter.setLocked(false);
     },

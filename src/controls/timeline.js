@@ -19,16 +19,22 @@ function formatDate(feature) {
 }
 
 class TimelinePlayer {
-  constructor(map, { chronological, onEnter, onExit }) {
+  constructor(map, { chronological, onEnter, onExit, onTick }) {
     this._map = map;
     this._all = chronological;
     this._onEnter = onEnter;
     this._onExit = onExit;
+    this._onTick = onTick;
 
     this._active = false;
     this._index = 0;
     this._timer = null;
     this._scrubbing = false;
+
+    // Non-clustering layer used only during playback. Keeps revealed markers
+    // pinned to their true coordinates instead of collapsing into clusters,
+    // so chronologically distant-but-simultaneous swims read as separate dots.
+    this._playbackLayer = L.layerGroup();
 
     this._buildDom();
   }
@@ -100,9 +106,12 @@ class TimelinePlayer {
       if (yearLayer.hasLayer(marker)) yearLayer.removeLayer(marker);
     }
 
+    this._playbackLayer.addTo(this._map);
+
     this._index = 0;
     this._slider.value = '0';
     this._dateEl.textContent = this._all[0] ? formatDate(this._all[0].feature) : '—';
+    this._onTick?.(0);
 
     this._map.flyToBounds(WORLD_BOUNDS, {
       duration: 1.0,
@@ -120,6 +129,9 @@ class TimelinePlayer {
     this._stopTimer();
     this._active = false;
     this._el.dataset.state = 'idle';
+
+    this._playbackLayer.clearLayers();
+    this._playbackLayer.remove();
 
     for (const { marker, yearLayer } of this._all) {
       if (!yearLayer.hasLayer(marker)) yearLayer.addLayer(marker);
@@ -155,12 +167,13 @@ class TimelinePlayer {
     }
 
     const entry = this._all[this._index];
-    entry.yearLayer.addLayer(entry.marker);
+    this._playbackLayer.addLayer(entry.marker);
     this._pulseAt(entry.feature.geometry?.coordinates, entry.marker.options.fillColor);
 
     this._index += 1;
     this._slider.value = String(this._index);
     this._dateEl.textContent = formatDate(entry.feature);
+    this._onTick?.(this._index);
   }
 
   _scrubTo(targetIndex) {
@@ -168,13 +181,13 @@ class TimelinePlayer {
 
     if (target > this._index) {
       for (let i = this._index; i < target; i += 1) {
-        const { marker, yearLayer } = this._all[i];
-        if (!yearLayer.hasLayer(marker)) yearLayer.addLayer(marker);
+        const { marker } = this._all[i];
+        if (!this._playbackLayer.hasLayer(marker)) this._playbackLayer.addLayer(marker);
       }
     } else if (target < this._index) {
       for (let i = this._index - 1; i >= target; i -= 1) {
-        const { marker, yearLayer } = this._all[i];
-        if (yearLayer.hasLayer(marker)) yearLayer.removeLayer(marker);
+        const { marker } = this._all[i];
+        if (this._playbackLayer.hasLayer(marker)) this._playbackLayer.removeLayer(marker);
       }
     }
 
@@ -182,6 +195,7 @@ class TimelinePlayer {
     const readoutFeature =
       target === 0 ? this._all[0]?.feature : this._all[target - 1]?.feature;
     this._dateEl.textContent = readoutFeature ? formatDate(readoutFeature) : '—';
+    this._onTick?.(this._index);
   }
 
   _pulseAt(coords, color) {

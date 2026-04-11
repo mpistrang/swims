@@ -83,6 +83,17 @@ const YearFilterControl = L.Control.extend({
     );
   },
 
+  // During timeline playback, override the big count readout so it ticks up
+  // with each revealed swim. Pass null to restore the filter-driven count.
+  setTimelineCount(count) {
+    if (!this._countEl) return;
+    if (count == null) {
+      this._updateCounter();
+    } else {
+      this._countEl.textContent = count;
+    }
+  },
+
   onAdd(map) {
     this._map = map;
 
@@ -100,6 +111,13 @@ const YearFilterControl = L.Control.extend({
     this._timelineBtn = container.querySelector('[data-action="timeline"]');
 
     container.addEventListener('click', this._onClick.bind(this));
+
+    // Tap anywhere on the map (outside the control) to dismiss the drawer.
+    // disableClickPropagation above keeps clicks on the control itself out of this.
+    map.on('click', () => {
+      if (this._expanded && !this._locked) this._toggleDrawer();
+    });
+
     return container;
   },
 
