@@ -1,0 +1,124 @@
+.swims-timeline {
+  --ink: #1a1612;
+  --paper: #f5f3ee;
+  --hot: #c93b56;
+
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 12px);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 44px;
+  padding: 0 18px;
+  width: min(560px, 72vw);
+
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 rgba(26, 22, 18, 0.12);
+  user-select: none;
+
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.swims-timeline,
+.swims-timeline * {
+  box-sizing: border-box;
+}
+
+.swims-timeline[data-state='active'] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.swims-timeline__date {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-variation-settings: 'opsz' 144, 'SOFT' 30;
+  font-feature-settings: 'tnum' 1;
+  letter-spacing: 0.02em;
+  min-width: 88px;
+  line-height: 1;
+}
+
+/* ── Slider ─────────────────────────────────────────────────── */
+
+.swims-timeline__slider {
+  flex: 1;
+  height: 20px;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.swims-timeline__slider:focus-visible {
+  outline: none;
+}
+
+.swims-timeline__slider::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--ink);
+  border: none;
+}
+
+.swims-timeline__slider::-moz-range-track {
+  height: 2px;
+  background: var(--ink);
+  border: none;
+}
+
+.swims-timeline__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--hot);
+  border: 2px solid var(--ink);
+  margin-top: -6px;
+  cursor: grab;
+  transition: transform 0.12s ease;
+}
+
+.swims-timeline__slider:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.15);
+}
+
+.swims-timeline__slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--hot);
+  border: 2px solid var(--ink);
+  cursor: grab;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .swims-timeline {
+    bottom: 16px;
+    width: min(420px, 86vw);
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .swims-timeline__date {
+    font-size: 16px;
+    min-width: 72px;
+  }
+}

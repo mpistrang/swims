@@ -13,6 +13,16 @@ export const swimsCluster = L.markerClusterGroup({
   chunkedLoading: true,
 });
 
+const MONTH_INDEX = {
+  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
+};
+
+function monthNumber(month) {
+  if (month == null) return 0;
+  return MONTH_INDEX[String(month).trim().toLowerCase()] ?? 0;
+}
+
 function bindPopup(feature, layer) {
   if (!feature.properties) return;
   const { number, month, day, year } = feature.properties;
@@ -41,6 +51,17 @@ function tallyYears(features) {
   return { sortedYears, yearCounts: counts };
 }
 
+function chronoCompare(a, b) {
+  const pa = a.properties || {};
+  const pb = b.properties || {};
+  if (pa.year !== pb.year) return (pa.year || 0) - (pb.year || 0);
+  const ma = monthNumber(pa.month);
+  const mb = monthNumber(pb.month);
+  if (ma !== mb) return ma - mb;
+  if ((pa.day || 0) !== (pb.day || 0)) return (pa.day || 0) - (pb.day || 0);
+  return (pa.number || 0) - (pb.number || 0);
+}
+
 export function buildYearLayers(featureCollection) {
   const features = Array.isArray(featureCollection?.features)
     ? featureCollection.features
@@ -53,15 +74,34 @@ export function buildYearLayers(featureCollection) {
   sortedYears.forEach((year, i) => {
     const color = YEAR_COLORS[i % YEAR_COLORS.length];
     yearColors[year] = color;
-
-    const geojsonLayer = L.geoJSON(featureCollection, {
-      filter: (feature) => feature.properties?.year === year,
-      onEachFeature: bindPopup,
-      pointToLayer: (_feature, latlng) => L.circleMarker(latlng, markerStyle(color)),
-    });
-
-    yearLayers[year] = L.featureGroup.subGroup(swimsCluster).addLayer(geojsonLayer);
+    yearLayers[year] = L.featureGroup.subGroup(swimsCluster);
   });
 
-  return { yearLayers, sortedYears, yearColors, yearCounts };
+  const chronological = [];
+
+  features.forEach((feature) => {
+    const year = feature?.properties?.year;
+    const yearLayer = yearLayers[year];
+    if (!yearLayer) return;
+
+    const coords = feature.geometry?.coordinates;
+    if (!Array.isArray(coords) || coords.length < 2) return;
+    const [lon, lat] = coords;
+
+    const marker = L.circleMarker([lat, lon], markerStyle(yearColors[year]));
+    bindPopup(feature, marker);
+    yearLayer.addLayer(marker);
+
+    chronological.push({ marker, yearLayer, feature });
+  });
+
+  chronological.sort((a, b) => chronoCompare(a.feature, b.feature));
+
+  return {
+    yearLayers,
+    sortedYears,
+    yearColors,
+    yearCounts,
+    chronological,
+  };
 }

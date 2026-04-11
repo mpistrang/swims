@@ -51,6 +51,8 @@ const YearFilterControl = L.Control.extend({
     this._yearCounts = options.yearCounts;
     this._baseLayers = options.baseLayers;
     this._activeBase = options.defaultBaseLayer;
+    this._onTimelineClick = options.onTimelineClick || null;
+    this._timelineActive = false;
 
     this._totalCount = this._sortedYears.reduce(
       (sum, y) => sum + this._yearCounts[y],
@@ -58,6 +60,27 @@ const YearFilterControl = L.Control.extend({
     );
     this._active = new Set(this._sortedYears);
     this._expanded = false;
+    this._locked = false;
+  },
+
+  getActiveYears() {
+    return new Set(this._active);
+  },
+
+  setLocked(locked) {
+    this._locked = Boolean(locked);
+    if (!this._container) return;
+    this._container.dataset.locked = this._locked ? 'true' : 'false';
+  },
+
+  setTimelineActive(active) {
+    this._timelineActive = Boolean(active);
+    if (!this._timelineBtn) return;
+    this._timelineBtn.textContent = this._timelineActive ? 'STOP' : 'TIMELINE';
+    this._timelineBtn.setAttribute(
+      'aria-pressed',
+      this._timelineActive ? 'true' : 'false',
+    );
   },
 
   onAdd(map) {
@@ -74,6 +97,7 @@ const YearFilterControl = L.Control.extend({
     this._countEl = container.querySelector('.swims-year-filter__count');
     this._metaEl = container.querySelector('.swims-year-filter__meta');
     this._triggerEl = container.querySelector('.swims-year-filter__trigger');
+    this._timelineBtn = container.querySelector('[data-action="timeline"]');
 
     container.addEventListener('click', this._onClick.bind(this));
     return container;
@@ -106,6 +130,7 @@ const YearFilterControl = L.Control.extend({
           <div class="swims-year-filter__quick">
             <button type="button" class="swims-year-filter__quick-btn" data-action="all">ALL</button>
             <button type="button" class="swims-year-filter__quick-btn" data-action="none">NONE</button>
+            <button type="button" class="swims-year-filter__quick-btn swims-year-filter__quick-btn--timeline" data-action="timeline" aria-pressed="false">TIMELINE</button>
           </div>
           <div class="swims-year-filter__grid">${chips}</div>
           <div class="swims-year-filter__base">
@@ -118,6 +143,15 @@ const YearFilterControl = L.Control.extend({
   },
 
   _onClick(event) {
+    // The timeline toggle stays live even while the filter is locked.
+    const timelineAction = event.target.closest('[data-action="timeline"]');
+    if (timelineAction) {
+      this._onTimelineClick?.();
+      return;
+    }
+
+    if (this._locked) return;
+
     const trigger = event.target.closest('[data-action="toggle-drawer"]');
     if (trigger) {
       this._toggleDrawer();

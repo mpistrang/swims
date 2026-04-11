@@ -21,7 +21,15 @@
 }
 
 .swims-year-filter[data-state='expanded'] {
-  width: 232px;
+  width: 260px;
+}
+
+.swims-year-filter[data-locked='true'] .swims-year-filter__trigger,
+.swims-year-filter[data-locked='true'] .swims-year-filter__grid,
+.swims-year-filter[data-locked='true'] .swims-year-filter__base,
+.swims-year-filter[data-locked='true'] .swims-year-filter__quick-btn:not(.swims-year-filter__quick-btn--timeline) {
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 /* ── Trigger header (always visible) ───────────────────────────── */
@@ -100,7 +108,7 @@
 
 .swims-year-filter__quick {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
 }
@@ -112,7 +120,7 @@
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   color: var(--ink);
   padding: 12px 0;
   cursor: pointer;
@@ -128,6 +136,15 @@
   background: var(--ink);
   color: var(--paper);
   outline: none;
+}
+
+.swims-year-filter__quick-btn--timeline {
+  letter-spacing: 0.08em;
+}
+
+.swims-year-filter__quick-btn--timeline[aria-pressed='true'] {
+  background: var(--hot);
+  color: var(--paper);
 }
 
 /* ── Chip grid: 2 columns, scrollable ──────────────────────────── */
@@ -256,7 +273,7 @@
   }
 
   .swims-year-filter[data-state='expanded'] {
-    width: 212px;
+    width: 240px;
   }
 
   .swims-year-filter__count {
