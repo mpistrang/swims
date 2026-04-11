@@ -6,3 +6,11 @@ token*.json
 .python-version
 client_secret*.json
 credentials/*
+
+# Vite / Node
+node_modules
+dist
+*.local
+
+# Claude Code local config
+.claude/

@@ -110,7 +110,7 @@ def main():
 
     geojson = {"type": "FeatureCollection", "features": list(swims_geojson)}
 
-    with open("./site-content/swims.geojson", "w") as f:
+    with open("./public/swims.geojson", "w") as f:
         json.dump(geojson, f)
 
 
