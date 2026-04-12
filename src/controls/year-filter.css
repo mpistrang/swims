@@ -268,19 +268,51 @@
 /* ── Mobile ────────────────────────────────────────────────────── */
 
 @media (max-width: 600px) {
-  .swims-year-filter {
-    width: 116px;
-  }
-
+  /* The trigger stays pinned top-left at its compact width; the body is
+     pulled out of the control flow below and rendered as a bottom sheet. */
+  .swims-year-filter,
   .swims-year-filter[data-state='expanded'] {
-    width: 240px;
+    width: 116px;
   }
 
   .swims-year-filter__count {
     font-size: 26px;
   }
 
+  /* Bottom sheet: replace the desktop grid-rows collapse with a
+     transform-based slide anchored to the viewport bottom. */
+  .swims-year-filter__body {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1001;
+    display: block;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    box-shadow: 0 -4px 0 rgba(26, 22, 18, 0.12);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .swims-year-filter[data-state='expanded'] .swims-year-filter__body {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .swims-year-filter__body-inner {
+    max-height: 70dvh;
+    overflow-y: auto;
+  }
+
   .swims-year-filter__grid {
-    max-height: 220px;
+    grid-template-columns: repeat(4, 1fr);
+    max-height: none;
+    padding: 14px;
+  }
+
+  .swims-year-filter__chip {
+    padding: 10px 4px 8px;
   }
 }

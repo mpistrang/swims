@@ -31,11 +31,6 @@ class TimelinePlayer {
     this._timer = null;
     this._scrubbing = false;
 
-    // Non-clustering layer used only during playback. Keeps revealed markers
-    // pinned to their true coordinates instead of collapsing into clusters,
-    // so chronologically distant-but-simultaneous swims read as separate dots.
-    this._playbackLayer = L.layerGroup();
-
     this._buildDom();
   }
 
@@ -106,8 +101,6 @@ class TimelinePlayer {
       if (yearLayer.hasLayer(marker)) yearLayer.removeLayer(marker);
     }
 
-    this._playbackLayer.addTo(this._map);
-
     this._index = 0;
     this._slider.value = '0';
     this._dateEl.textContent = this._all[0] ? formatDate(this._all[0].feature) : '—';
@@ -129,9 +122,6 @@ class TimelinePlayer {
     this._stopTimer();
     this._active = false;
     this._el.dataset.state = 'idle';
-
-    this._playbackLayer.clearLayers();
-    this._playbackLayer.remove();
 
     for (const { marker, yearLayer } of this._all) {
       if (!yearLayer.hasLayer(marker)) yearLayer.addLayer(marker);
@@ -167,7 +157,7 @@ class TimelinePlayer {
     }
 
     const entry = this._all[this._index];
-    this._playbackLayer.addLayer(entry.marker);
+    entry.yearLayer.addLayer(entry.marker);
     this._pulseAt(entry.feature.geometry?.coordinates, entry.marker.options.fillColor);
 
     this._index += 1;
@@ -181,13 +171,13 @@ class TimelinePlayer {
 
     if (target > this._index) {
       for (let i = this._index; i < target; i += 1) {
-        const { marker } = this._all[i];
-        if (!this._playbackLayer.hasLayer(marker)) this._playbackLayer.addLayer(marker);
+        const { marker, yearLayer } = this._all[i];
+        if (!yearLayer.hasLayer(marker)) yearLayer.addLayer(marker);
       }
     } else if (target < this._index) {
       for (let i = this._index - 1; i >= target; i -= 1) {
-        const { marker } = this._all[i];
-        if (this._playbackLayer.hasLayer(marker)) this._playbackLayer.removeLayer(marker);
+        const { marker, yearLayer } = this._all[i];
+        if (yearLayer.hasLayer(marker)) yearLayer.removeLayer(marker);
       }
     }
 

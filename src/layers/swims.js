@@ -11,6 +11,7 @@ import { YEAR_COLORS } from '../config.js';
 export const swimsCluster = L.markerClusterGroup({
   showCoverageOnHover: false,
   chunkedLoading: true,
+  maxClusterRadius: 40,
 });
 
 const MONTH_INDEX = {
